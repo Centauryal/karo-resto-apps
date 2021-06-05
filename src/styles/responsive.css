@@ -1,0 +1,133 @@
+@media only screen and (max-width: 600px) {
+    #navbar .nav-item {
+        width: 100%;
+        height: unset;
+    }
+
+    #navbar .nav-item a {
+        width: 100%;
+        height: 100%;
+        padding: 1.5em;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero:before {
+        min-height: 350px;
+    }
+
+    .hero .hero-container {
+        min-height: 350px;
+    }
+
+    .hero .hero-container h1 {
+        padding-top: 40px;
+        font-size: 24px;
+    }
+
+    .hero .hero-container p {
+        font-size: 12px;
+        margin: 5px 0%;
+    }
+
+    #footer {
+        padding: 0 0 15px 0;
+    }
+    
+    #footer .copyright {
+        text-align: center;
+        padding: 15px 5%;
+        font-size: 12px;
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
+    #products .content-list {
+        padding: 16px 32px 32px 32px;
+    }
+
+    #products .content-list h1 {
+        font-size: 18px;
+    }
+
+    #products .content-list p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    #navbar .menu-toggle {
+        display: none;
+    }
+
+    #navbar .nav-menu,
+    #navbar.opened .nav-menu {
+        all: unset;
+        position: static;
+        display: block;
+        height: 100%;
+    }
+
+    #navbar .nav-list,
+    #navbar.opened .nav-list {
+        all: unset;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        max-height: max-content;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        padding: 0;
+    }
+
+    #navbar .nav-item a {
+        padding: 0 1.5em;
+    }
+
+    #navbar .nav-item:last-child {
+        margin-right: 0;
+    }
+
+    .hero .hero-container h1 {
+        padding-top: 40px;
+        font-size: 28px;
+    }
+
+    .hero .hero-container p {
+        font-size: 16px;
+        margin: 5px 5%;
+    }
+
+    #products .product-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 18px;
+        grid-row-gap: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .hero .hero-container h1 {
+        padding-top: 80px;
+    }
+
+    .hero .hero-container p {
+        margin: 10px 10%;
+    }
+
+    #products .product-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    main {
+        max-width: 1200px;
+    }
+}
+
