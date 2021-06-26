@@ -1,16 +1,45 @@
 import 'regenerator-runtime';
-import CacheHelper from './utils/cache-helper';
+import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
+import { registerRoute } from 'workbox-routing';
+import { ExpirationPlugin } from 'workbox-expiration';
+import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
+import CONFIG from './globals/config';
 
-const { assets } = global.serviceWorkerOption;
+precacheAndRoute(
+  [
+    ...self.__WB_MANIFEST,
+    {
+      url:
+        'https://fonts.googleapis.com/css?family=Poppins&display=swap',
+      revision: 1,
+    },
+    {
+      url:
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css',
+      revision: 1,
+    },
+  ],
+  {
+    ignoreURLParametersMatching: [/.*/],
+  },
+);
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
-});
+registerRoute(
+  /^https:\/\/restaurant-api\.dicoding\.dev\/(?:(list|detail))/,
+  new StaleWhileRevalidate({
+    cacheName: CONFIG.CACHE_NAME,
+  }),
+);
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(CacheHelper.deleteOldCache());
-});
-
-self.addEventListener('fetch', (event) => {
-  event.respondWith(CacheHelper.revalidateCache(event.request));
-});
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: CONFIG.CACHE_NAME,
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+      }),
+    ],
+  }),
+);

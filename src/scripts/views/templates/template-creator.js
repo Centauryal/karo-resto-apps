@@ -43,7 +43,7 @@ const restaurantDetailTemplate = (detail) => `
     </div>
     <div class="detail-food">
         <h3>Food Menu</h3>
-        <div>
+        <div class="food-item">
             ${detail.menus.foods
     .map((food) => `
     <p>${food.name}</p>
@@ -52,7 +52,7 @@ const restaurantDetailTemplate = (detail) => `
     </div>
     <div class="detail-drink">
         <h3>Drinks Menu</h3>
-        <div>
+        <div class="drink-item">
             ${detail.menus.drinks
     .map((drink) => `
     <p>${drink.name}</p>

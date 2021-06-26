@@ -28,8 +28,9 @@ const Detail = {
     const loading = document.querySelector('#loading');
     const detailContainer = document.querySelector('#detail-list');
 
-    main.style.display = 'none';
     loading.innerHTML = Loading();
+    main.style.display = 'none';
+
     try {
       const data = await RestaurantSource.detailRestaurant(url.id);
       detailContainer.innerHTML += restaurantDetailTemplate(data.restaurant);
@@ -39,11 +40,11 @@ const Detail = {
         data,
       });
 
-      main.style.display = 'block';
       loading.style.display = 'none';
+      main.style.display = 'block';
     } catch (error) {
-      main.style.display = 'block';
       loading.style.display = 'none';
+      main.style.display = 'block';
       detailContainer.innerHTML = `${error}, Check your Connection!`;
     }
 

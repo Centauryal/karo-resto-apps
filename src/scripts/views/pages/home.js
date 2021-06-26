@@ -6,12 +6,12 @@ const Home = {
   async render() {
     return `
           <section id="products" class="products">
-            <div id="loading"></div>
             <div class="container">
               <header class="section-header">
                 <h2 class="section-title">Our Restaurant</h2>
               </header>
 
+              <div id="loading"></div>
               <div id="product-list" class="product-list"></div>
             </div>
           </section>
@@ -23,8 +23,8 @@ const Home = {
     const loading = document.querySelector('#loading');
     const listContainer = document.querySelector('#product-list');
 
-    main.style.display = 'none';
     loading.innerHTML = Loading();
+    main.style.display = 'none';
     listContainer.innerHTML = '';
 
     try {
@@ -32,11 +32,11 @@ const Home = {
       data.restaurants.forEach((restaurant) => {
         listContainer.innerHTML += restaurantItemTemplate(restaurant);
       });
-      main.style.display = 'block';
       loading.style.display = 'none';
+      main.style.display = 'block';
     } catch (error) {
-      main.style.display = 'block';
       loading.style.display = 'none';
+      main.style.display = 'block';
       listContainer.innerHTML = `${error}, Check your Connection!`;
     }
   },

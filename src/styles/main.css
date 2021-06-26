@@ -713,6 +713,12 @@ section {
   margin: 10px 0;
 }
 
+.food-item,
+.drink-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 /* Review Section
   --------------------------------*/
 .form-review {
