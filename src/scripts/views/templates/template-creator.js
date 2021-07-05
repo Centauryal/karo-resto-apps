@@ -4,7 +4,7 @@ const restaurantItemTemplate = (restaurant) => `
 <div class="product-item">
     <a href="#/detail/${restaurant.id}">
         <div class="shadow-gradient">
-            <img class="product-thumbnail" src="${CONFIG.BASE_IMAGE + restaurant.pictureId}" 
+            <img class="product-thumbnail lazyload" src="${CONFIG.BASE_IMAGE + restaurant.pictureId}" 
                 title="${restaurant.name}" alt="${restaurant.name}" loading="lazy" crossorigin="anonymous"/>
         </div>
         <div class="product-title"><h1>${restaurant.name}</h1></div>
@@ -22,7 +22,7 @@ const restaurantItemTemplate = (restaurant) => `
 const restaurantDetailTemplate = (detail) => `
 <div class="detail-item">
     <div>
-        <img class="detail-thumbnail" src="${CONFIG.BASE_IMAGE + detail.pictureId}"
+        <img class="detail-thumbnail lazyload" src="${CONFIG.BASE_IMAGE + detail.pictureId}"
         title="${detail.name}" alt="${detail.name}" crossorigin="anonymous"/>
     </div>
     <div class="detail-info">

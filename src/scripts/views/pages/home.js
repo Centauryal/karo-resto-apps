@@ -1,6 +1,6 @@
 import RestaurantSource from '../../data/restaurant-source';
 import { restaurantItemTemplate } from '../templates/template-creator';
-import Loading from '../templates/template-loading';
+import skeletonRestaurantTemplate from '../templates/template-skeleton';
 
 const Home = {
   async render() {
@@ -12,19 +12,17 @@ const Home = {
               </header>
 
               <div id="loading"></div>
-              <div id="product-list" class="product-list"></div>
+              <div id="product-list" class="product-list">
+                ${skeletonRestaurantTemplate(10)}
+              </div>
             </div>
           </section>
         `;
   },
 
   async afterRender() {
-    const main = document.querySelector('.products');
-    const loading = document.querySelector('#loading');
     const listContainer = document.querySelector('#product-list');
 
-    loading.innerHTML = Loading();
-    main.style.display = 'none';
     listContainer.innerHTML = '';
 
     try {
@@ -32,11 +30,7 @@ const Home = {
       data.restaurants.forEach((restaurant) => {
         listContainer.innerHTML += restaurantItemTemplate(restaurant);
       });
-      loading.style.display = 'none';
-      main.style.display = 'block';
     } catch (error) {
-      loading.style.display = 'none';
-      main.style.display = 'block';
       listContainer.innerHTML = `${error}, Check your Connection!`;
     }
   },

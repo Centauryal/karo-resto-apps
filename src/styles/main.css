@@ -31,6 +31,12 @@ main {
   margin: 0 auto;
 }
 
+.skeleton {
+  user-select: none;
+  background-color: #eeeeee;
+  color: #eeeeee;
+}
+
 /*--------------------------------------------------------------
 # Skip to content
 --------------------------------------------------------------*/
@@ -480,7 +486,7 @@ main {
 .hero {
   width: 100%;
   min-height: 400px;
-  background: #fbeeac url("../public/images/hero-image_2.jpg") center top
+  background: #fbeeac url("/images/hero-image_2-large.jpg") center top
     no-repeat;
   background-size: cover;
 }

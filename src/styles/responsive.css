@@ -12,6 +12,8 @@
 
   .hero {
     min-height: 350px;
+    background: #fbeeac url("/images/hero-image_2-small.jpg") center top
+        no-repeat;
   }
 
   .hero:before {
