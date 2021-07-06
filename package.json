@@ -6,10 +6,12 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "start": "node server.js",
     "build-image": "node sharp.js",
     "test": "karma start",
     "lint": "eslint ./src",
-    "e2e": "codeceptjs run"
+    "e2e": "codeceptjs run",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.js --progress && node sharp.js"
   },
   "keywords": [],
   "author": "Alfa Centaury <alfa.arnialfa@gmail.com>",
@@ -49,6 +51,7 @@
     "workbox-webpack-plugin": "^6.1.5"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "file-loader": "^6.1.0",
     "idb": "^6.1.2",
     "lazysizes": "^5.3.2",

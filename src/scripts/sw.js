@@ -5,6 +5,8 @@ import { ExpirationPlugin } from 'workbox-expiration';
 import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
 import CONFIG from './globals/config';
 
+self.skipWaiting();
+
 precacheAndRoute(
   [
     ...self.__WB_MANIFEST,

@@ -10,21 +10,32 @@ if (!fs.existsSync(destination)) {
 }
 
 fs.readdirSync(target).forEach((image) => {
+  if (image !== 'placeholder.png') {
     sharp(`${target}/${image}`)
-      .resize(800)
-      .toFile(
-        path.resolve(
-           __dirname,
-           `${destination}/${image.split('.').slice(0, -1).join('.')}-large.jpg`,
-        ),
+    .resize(800)
+    .toFile(
+      path.resolve(
+          __dirname,
+          `${destination}/${image.split('.').slice(0, -1).join('.')}-large.jpg`,
+      ),
     );
 
-    sharp(`${target}/${image}`)
-      .resize(400)
-      .toFile(
-        path.resolve(
-          __dirname,
-          `${destination}/${image.split('.').slice(0, -1).join('.')}-small.jpg`,
-        ),
+  sharp(`${target}/${image}`)
+    .resize(400)
+    .toFile(
+      path.resolve(
+        __dirname,
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-small.jpg`,
+      ),
     );
-})
+  } else {
+    sharp(`${target}/${image}`)
+    .resize(50, 29)
+    .toFile(
+      path.resolve(
+          __dirname,
+          `${destination}/${image.split('.').slice(0, -1).join('.')}.png`,
+      ),
+    );
+  }
+});
