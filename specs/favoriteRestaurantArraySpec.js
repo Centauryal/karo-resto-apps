@@ -1,4 +1,4 @@
-import { itActsAsFavoriteRestaurantModel } from "./contract/favoriteRestaurantContract";
+import { itActsAsFavoriteRestaurantModel } from './contract/favoriteRestaurantContract';
 
 let favoriteRestaurants = [];
 
@@ -16,11 +16,11 @@ const FavoriteRestaurantArray = {
   },
 
   putRestaurant(restaurant) {
-    if(!restaurant.hasOwnProperty('id')) {
+    if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 
-    if(this.getRestaurant(restaurant.id)) {
+    if (this.getRestaurant(restaurant.id)) {
       return;
     }
 
@@ -37,4 +37,3 @@ describe('Favorite Restaurant Array Contract Test Implementation', () => {
 
   itActsAsFavoriteRestaurantModel(FavoriteRestaurantArray);
 });
-
