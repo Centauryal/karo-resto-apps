@@ -4,14 +4,14 @@
   "description": "Karo Resto App, We stand for something Good in everything we do.",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "start-dev": "webpack-dev-server --config webpack.dev.cjs",
     "build": "webpack --config webpack.prod.js",
     "start": "node server.js",
     "build-image": "node sharp.js",
     "test": "karma start",
     "lint": "eslint ./src",
     "e2e": "codeceptjs run",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.js --progress && node sharp.js"
+    "heroku-postbuild": "webpack --mode production --config ./webpack.prod.cjs --progress && node sharp.js"
   },
   "keywords": [],
   "author": "Alfa Centaury <alfa.arnialfa@gmail.com>",
