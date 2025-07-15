@@ -3,8 +3,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 
-const ImageminMozjpeg = (...args) => import('imagemin-mozjpeg').then(({ default: fetch }) => fetch(...args));
-const ImageminPngquant = require('imagemin-pngquant');
+const ImageminMozjpeg = require('imagemin-mozjpeg').default;
+const ImageminPngquant = require('imagemin-pngquant').default;
 const path = require('path');
 
 module.exports = {

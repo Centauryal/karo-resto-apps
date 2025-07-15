@@ -1,10 +1,12 @@
-const { merge } = require("webpack-merge");
-const path = require("path");
-const common = require("./webpack.common.cjs");
+const { merge } = require('webpack-merge');
+const path = require('path');
+const common = require('./webpack.common.cjs');
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
   },
 });
