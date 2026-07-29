@@ -60,7 +60,6 @@ const Detail = {
       event.preventDefault();
       btnLoadingReview.style.display = 'inline-block';
       if (inputNameReview.value === '' || inputReview.value === '') {
-        // eslint-disable-next-line no-alert
         alert('Input cannot be empty');
         inputNameReview.value = '';
         inputReview.value = '';
